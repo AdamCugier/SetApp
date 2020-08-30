@@ -6,6 +6,10 @@ export const variables = {
   textPrimaryColorHover: '#101010',
   bgPrimaryColor: '#f2f2f2',
   shadow: '3px 3px 10px rgba(0,0,0,0.15);',
+  sm: 480,
+  md: 768,
+  lg: 1366,
+  xl: 1920,
 };
 
 //Global styled components
@@ -22,5 +26,6 @@ flex-direction: column;
 export const AppContent = styled(Container)`
 display: flex;
 flex-grow: 1;
+justify-content: center;
 `;
 

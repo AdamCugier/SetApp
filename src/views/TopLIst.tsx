@@ -34,7 +34,7 @@ const TopList: React.FC = () => {
 
   return (
     <List.Container>
-      <List.Title>iTunes - top 100</List.Title>
+      {dataLoaded && <List.Title>iTunes - top 100</List.Title>}
       {dataLoaded ?
         topList.map((track, index: number) => <TrackBox trackData={track} tabIndex={index} key={track.id}/>)
         :
