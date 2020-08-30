@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { TopList } from "./views/TopLIst";
+import TopList from "./views/TopLIst";
 import { Track } from "./views/Track";
 import { Navigation } from "./views/components/Navigation/Navigation";
 import { Footer } from "./views/components/Footer/Footer";

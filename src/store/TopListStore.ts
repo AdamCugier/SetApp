@@ -6,9 +6,13 @@ export interface TopListI {
 
 class TopListStore {
   @observable topList: TopListI[] = [];
+  @observable dataLoaded: Boolean = false;
 
   @action setTopList = (results: TopListI[]) => {
     this.topList = results;
+  };
+  @action setDataLoaded = (status: Boolean) => {
+    this.dataLoaded = true;
   };
 }
 

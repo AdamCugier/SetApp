@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Loader } from "./components/Loader/Loader";
+import TopListStore from "../store/TopListStore";
+import { observer } from "mobx-react-lite";
 
-export const TopList: React.FC = () => {
+
+const TopList: React.FC = () => {
+
+  const topListStore = useContext(TopListStore);
+  const { dataLoaded } = topListStore;
+
   return (
-    <div>
-      TopList
-    </div>
+    <>
+      {dataLoaded ? <div>Loaded</div> :
+        <Loader/>
+      }
+    </>
   )
 };
+export default observer(TopList)
