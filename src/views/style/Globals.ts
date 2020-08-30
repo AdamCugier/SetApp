@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 //Global Variables
 export const variables = {
-  textPrimaryColor: '#949494',
-  textPrimaryColorHover: '#505050',
+  textPrimaryColor: '#505050',
+  textPrimaryColorHover: '#101010',
   bgPrimaryColor: '#f2f2f2',
   shadow: '3px 3px 10px rgba(0,0,0,0.15);',
 };
