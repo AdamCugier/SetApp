@@ -6,7 +6,7 @@ export const Ft = {
   Container: styled(Container)`
   background-color: ${variables.bgPrimaryColor};
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 `,
   Text: styled.span`

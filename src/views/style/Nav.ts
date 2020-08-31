@@ -8,6 +8,8 @@ export const Nav = {
   align-items: center;
   background-color: ${variables.bgPrimaryColor};
   box-shadow: ${variables.shadow};
+  position: relative;
+  z-index: 10;
   `,
   LeftSection: styled.div`
   display: flex;

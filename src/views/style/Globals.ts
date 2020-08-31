@@ -24,9 +24,11 @@ display: flex;
 flex-direction: column;
 `;
 
-export const AppContent = styled(Container)`
+export const AppContent = styled.div`
 display: flex;
 flex-grow: 1;
 justify-content: center;
+position: relative;
+z-index: 1;
 `;
 

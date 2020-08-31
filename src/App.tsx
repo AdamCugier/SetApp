@@ -5,6 +5,7 @@ import Track from "./views/Track";
 import { Navigation } from "./views/components/Navigation/Navigation";
 import { Footer } from "./views/components/Footer/Footer";
 import { AppContainer, AppContent } from "./views/style/Globals";
+import Home from "./views/Home";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Navigation/>
         <AppContent>
           <Switch>
+            <Route path={"/"} exact component={Home}/>
             <Route path={"/top-list"} component={TopList}/>
             <Route path={"/track/:trackId"} component={Track}/>
           </Switch>

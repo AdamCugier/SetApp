@@ -8,6 +8,7 @@ export const Tr = {
   align-items: center;
   flex-direction: column;
   max-width: 80%;
+  padding: 2rem 1rem;
   `,
   Img: styled.img`
   border-radius: 50%;

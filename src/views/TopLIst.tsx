@@ -56,7 +56,7 @@ const TopList: React.FC = () => {
 
   return (
     <List.Container>
-      {(dataLoaded && topList.length > 0) && <List.Title>iTunes - TOP 100 Albums</List.Title>}
+      {(dataLoaded && topList.length > 0) && <List.Title>TOP 100 Albums</List.Title>}
       {(dataLoaded && topList.length > 0) &&
       <List.Input placeholder={'Find album...'} onChange={(e) => debounceSearch(e.target.value)}></List.Input>}
       {dataLoaded && topList.length > 0 && searchResults.length === 0 ?

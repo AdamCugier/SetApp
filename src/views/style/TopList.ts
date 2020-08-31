@@ -8,6 +8,7 @@ export const List = {
   width:50%;
   flex-direction: column;
   transition: 0.3s;
+  padding: 1rem;
   @media (max-width: ${variables.sm}px){
   width: 100%;
   }
@@ -26,6 +27,8 @@ export const List = {
   color: ${variables.textPrimaryColor};
   text-align: center;
   margin-bottom: 2rem;
+  font-family: 'Russo One', sans-serif;
+  
 `,
   Input: styled.input`
   width:50%;
