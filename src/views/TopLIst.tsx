@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Loader } from "./components/Loader/Loader";
-import TopListStore from "../store/TopListStore";
+import TopListStore, { TopListI } from "../store/TopListStore";
 import { observer } from "mobx-react-lite";
 import iTunesService from "../services/iTunesService";
 import TrackBox from "./components/TrackBox/TrackBox";
@@ -10,9 +10,11 @@ const TopList: React.FC = () => {
 
   const topListStore = useContext(TopListStore);
   const { dataLoaded, setDataLoaded, topList, setTopList } = topListStore;
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState<TopListI[]>([]);
 
   useEffect(() => {
-    if(topList.length === 0) {
+    if (topList.length === 0) {
       setDataLoaded(false);
       iTunesService.getTracks().then(r => {
         const filteredData = r.feed.entry.map((track: any) => ({
@@ -34,13 +36,36 @@ const TopList: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    if(topList.length > 0 && dataLoaded) {
+      const results = topList.filter(album => album.title.toLowerCase().includes(searchValue.toLowerCase()));
+      if (results.length > 0) setSearchResults(results);
+      else alert('Not found Albums');
+    }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchValue]);
+
+
+  let timer: any = null;
+  const debounceSearch = (value: string) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      setSearchValue(value);
+    }, 500)
+  };
+
   return (
     <List.Container>
-      {(dataLoaded && topList.length > 0) && <List.Title>iTunes - top 100</List.Title>}
-      {dataLoaded && topList.length > 0?
+      {(dataLoaded && topList.length > 0) && <List.Title>iTunes - TOP 100 Albums</List.Title>}
+      {(dataLoaded && topList.length > 0) &&
+      <List.Input placeholder={'Find album...'} onChange={(e) => debounceSearch(e.target.value)}></List.Input>}
+      {dataLoaded && topList.length > 0 && searchResults.length === 0 ?
         topList.map((track, index: number) => <TrackBox trackData={track} tabIndex={index} key={track.id}/>)
         :
-        <Loader/>
+        dataLoaded && topList.length > 0 && searchResults.length > 0 ?
+          searchResults.map((track, index: number) => <TrackBox trackData={track} tabIndex={index} key={track.id}/>)
+          :
+          <Loader/>
       }
     </List.Container>
   )

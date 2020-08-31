@@ -24,7 +24,7 @@ const TrackBox: React.FC<{ trackData: TopListI, tabIndex: number }> = (props) =>
         <Box.Lp>{props.tabIndex + 1}</Box.Lp>
         <Box.Image src={props.trackData.image[0].label} alt=""/>
       </Box.LeftSide>
-      <Box.Title>{props.trackData.artist} - {props.trackData.title}</Box.Title>
+      <Box.Title>{props.trackData.title}</Box.Title>
     </Box.Container>
   )
 };
