@@ -9,7 +9,7 @@ export const List = {
   flex-direction: column;
   transition: 0.3s;
   @media (max-width: ${variables.sm}px){
-  width:90%;
+  width: 100%;
   }
   @media (min-width: ${variables.sm + 1}px) and (max-width: ${variables.md}px){
   width:80%;

@@ -21,10 +21,30 @@ export interface TopListI {
 
 class TopListStore {
   @observable topList: TopListI[] = [];
+  @observable activeTrack: TopListI = {
+    name: '',
+    image: [{
+      label: '',
+      attributes: {
+        height: ''
+      }
+    }],
+    price: '',
+    rights: '',
+    title: '',
+    link: '',
+    id: '',
+    artist: '',
+    category: '',
+    releaseDate: ''
+  };
   @observable dataLoaded: Boolean = false;
 
   @action setTopList = (results: TopListI[]) => {
     this.topList = results;
+  };
+  @action setActiveTrack = (results: TopListI) => {
+    this.activeTrack = results;
   };
   @action setDataLoaded = (status: Boolean) => {
     this.dataLoaded = true;

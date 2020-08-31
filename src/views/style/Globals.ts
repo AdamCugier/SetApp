@@ -5,6 +5,7 @@ export const variables = {
   textPrimaryColor: '#505050',
   textPrimaryColorHover: '#101010',
   bgPrimaryColor: '#f2f2f2',
+  bgPrimaryColorHover: '#bdcce6',
   shadow: '3px 3px 10px rgba(0,0,0,0.15);',
   sm: 480,
   md: 768,
